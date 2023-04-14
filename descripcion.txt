@@ -1,0 +1,6 @@
+Pasos a seguir: 
+•	El usuario ingresa el nombre del curso, el código del curso, el número de créditos y las horas de clase por semana, y estas acciones las realiza por medio de inputs o texto ingresado por consola o terminal, al momento de ejecutar el código, y a partir de esta información, se calculan las horas de trabajo fuera del aula de clase.
+
+•	Luego se planea realizar una segunda etapa, en la cual, el usuario crearía un horario semanal para los cursos registrados. En esta etapa, para cada curso, el usuario digitará por consola, el código del curso y luego también se le plantea digitar un horario en formato: “DD-HH” donde “DD” representa los días de la semana y “HH” representaría la hora de clase y terminación, como por ejemplo “MJ-8-10” para una clase de martes a jueves de 8 a 10 am.
+
+•	Luego en la etapa 3, se plantea que el usuario digite el código de la materia, y así luego digite un horario con el mismo formato anterior, con el fin de representar el tiempo de trabajo independiente, sin embargo, en esta etapa se debe validar la disponibilidad de horarios sin previas clases en aula.
