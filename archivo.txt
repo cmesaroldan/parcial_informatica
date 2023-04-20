@@ -1,4 +1,8 @@
+
+// ...FORMATO DEL SEMESTRE...
 //codigo //nombre //hc //he
+
+//semestre 1: 
 2536101,descubriendo la fisica,4,5
 2555131,calculo diferencial,4,5
 2555101,algebra y trigonometria,4,5
@@ -6,6 +10,8 @@
 2598511,informatica i,7,5
 2538101,ingles i,4,1
 2537101,vivamos la universidad,2,1
+
+//semestre 2: 
 2536201,fisica mecanica,4,5
 2555231,calculo integral,4,5
 2555221,algebra lineal,4,5
@@ -13,6 +19,8 @@
 2598521,informatica 2,7,5
 2538201,ingles ii,4,1
 253901,lectoescritura,4,5
+
+//semestre 3: 
 256302,fisica de ondas,4,5
 2555331,calculo vectorial,4,5
 2598531,ecuaciones diferenciales,4,5
@@ -21,5 +29,3 @@
 2538301,ingles iii,4,1
 2517362,form ciudadana,2,1
 
-
-//hasta semestre 3
