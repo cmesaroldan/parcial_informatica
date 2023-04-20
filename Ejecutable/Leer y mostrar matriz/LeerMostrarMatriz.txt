@@ -1,0 +1,104 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+//prototipo de funcion..
+void horario();
+char* leerArchivoTexto(const char* nombreArchivo) {
+    ifstream archivo(nombreArchivo);
+    if (!archivo.is_open()) {
+        cerr << "Error al abrir el archivo " << nombreArchivo << endl;
+        return nullptr;
+    }
+
+    archivo.seekg(0, ios::end);
+    int tamanoArchivo = archivo.tellg();
+    archivo.seekg(0, ios::beg);
+
+    char* contenido = new char[tamanoArchivo + 1];
+    archivo.read(contenido, tamanoArchivo);
+    contenido[tamanoArchivo] = '\0';
+
+    archivo.close();
+
+    return contenido;
+}
+
+
+int main() {
+    char* contenido = leerArchivoTexto("archivo.txt");
+    if (contenido != nullptr) {
+        cout << "Contenido del archivo: " << endl << contenido << endl;
+        delete[] contenido;
+    }
+
+    horario();
+
+    return 0;
+}
+
+void horario(){
+    int **matrix;
+    matrix=new int *[6];
+    for(int i=0;i<6; i++){
+        matrix[i]=new int[15];
+    }
+    for(int j=0;j<6;j++){
+        for(int k=0;k<15;k++){
+            *(*(matrix+j)+k)=0;
+        }
+
+    }
+    bool finished=false;
+    while(finished==false){
+        for(int j=0;j<6;j++){
+            for(int k=0;k<15;k++){
+                if((*(*(matrix+j)+k))==0) cout<<" LIBRE ";
+                else cout<<" OCUPA ";
+            }
+            cout<<endl;
+        }
+        char fila, option; int columna;
+        cout<<"Ingrese a para reservar una hora de su horario. "<<endl<<"Ingrese b para quitar un horario.  "<<endl<<"Ingrese una letra diferente para salir "<<endl;
+        cin>>option;
+        if(option!='a' && option!='b') break;
+        cout<<"Ingrese el dia, lunes a sabado, solo la inicial y en mayuscula. "<<endl; cin>>fila;
+        cout<<"Ingrese la columna 6-20 "<<endl; cin>>columna;
+        switch (fila) {
+        case 'L':{
+            if(option=='a') *(*(matrix)+(columna-6))=1;
+            else *(*(matrix)+(columna-6))=0;
+            break;
+        }
+        case 'M':{
+            if(option=='a') *(*(matrix+1)+(columna-6))=1;
+            else *(*(matrix+1)+(columna-6))=0;
+            break;
+        }
+        case 'W':{
+            if(option=='a') *(*(matrix+2)+(columna-6))=1;
+            else *(*(matrix+2)+(columna-6))=0;
+            break;
+        }
+        case 'J':{
+            if(option=='a') *(*(matrix+3)+(columna-6))=1;
+            else *(*(matrix+3)+(columna-6))=0;
+            break;
+        }
+        case 'V':{
+            if(option=='a') *(*(matrix+4)+(columna-6))=1;
+            else *(*(matrix+4)+(columna-6))=0;
+            break;
+        }
+        case 'S':{
+            if(option=='a') *(*(matrix+5)+(columna-6))=1;
+            else *(*(matrix+5)+(columna-6))=0;
+            break;
+        }
+        default:{
+            cout<<"Los valores ingresados son invalidos "<<endl;
+        }
+        }
+    }
+    delete [] matrix;
+}

@@ -20,7 +20,7 @@ char* leerArchivo(const char*); //funcion para leer la base de datos.
 void cortarCadena(const char* codigo); //Toma la información relacionada al código de la materia
 char* intACharPuntero(int num); //función, toma un entero y lo convierte en entero
 int horas_ti(int a); //Retorna numero de horas asistidas y no asistidas
-int strcmp(const char* cadena1, const char* cadena2); //Prototipo de funciion comparadora
+int strcmp(const char* cadena1, const char* cadena2); //Prototipo de funcion comparadora
 char Matricular(char[5][15], int, int);
 
 
@@ -228,6 +228,7 @@ char modificarHorario(char[][15]){
 }
 
 void LeerBase(){
+
     int horasTi = 0;
     int userCode = 0;
     int opcion = 0;
@@ -359,9 +360,7 @@ char* intACharPuntero(int num) {
 
 int horas_ti(int a){
     int horasTi = 0, hdocente = 0, hindividual = 0;
-    if(a == 2555131 || a == 2536101 || a == 2555101 ||a == 2555121 ||a == 2538101 ||a == 2536201 ||a == 2555221 ||a == 2538201 ||a == 256302 ||a == 2555331 ||a == 2598531 ||a == 2599431 ||a == 2538301 ||a == 2555131){
-
-
+    if(a == 2555131 || a == 2536101 || a == 2555101 ||a == 2555121|| a == 2555231 ||a == 2536201 ||a == 2555221 ||a == 2538201 ||a == 2536302 ||a == 2555331 ||a == 2598531 ||a == 2599431 ||a == 2555131 ||a == 2517362){
         hdocente = 4;
         hindividual = ((3*48) / 16) - hdocente;
         int htotal = hdocente + hindividual;
@@ -369,9 +368,7 @@ int horas_ti(int a){
         cout<<"total de horas es: "<<htotal;
         Matricular(mat, 4, hindividual);
 
-    }else if(a == 2517362|| a == 259942||a == 2555121||a == 2537101){
-
-
+    }else if(a == 2517362|| a == 2599421||a == 2555121||a == 2537101 || a == 2538101 || a == 2538201 || a == 2539101 ||a == 2538301){
         hdocente = 2;
         hindividual = ((1*48) / 16) - hdocente;
         int htotal = hdocente + hindividual;

@@ -1,0 +1,10 @@
+2555131,calculo diferencial,4,5
+2555101,algebra y trigonometria,4,5
+2555121,geom vectorial,4,5
+2598511,informatica i,7,5
+2538101,ingles i,4,1
+2537101,vivamos la universidad,2,1
+2555131,calculo diferencial,4,5
+2536101,descubriendo la fisica,4,5
+
+
