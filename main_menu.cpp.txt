@@ -1,0 +1,218 @@
+﻿#include <iostream>
+#include <fstream>
+
+using namespace std;
+//prototipo:
+void menu();
+void mostrarMatriz();
+void modificarHorario();
+void LeerBase();
+char* leerArchivo(const char*);
+
+
+//Definicion de variables:
+char dia;
+int hora = 0,opc = 0;
+char mat[6][15];
+
+int main()
+{
+   menu();
+   return 0;
+
+}
+void menu(){
+   int opt=1;
+   cout<<"....Bienvenido a su modificador de horario....."<<endl;
+
+   while(opt !=0){
+   int opt;
+
+   cout<<"Ingrese su opcion elegida "<<endl;
+   cout<<"1.Visualizar su horario "<<endl;
+   cout<<"2.Registrar horario "<<endl;
+   cout<<"3.Mostrar opciones de horario "<<endl;
+   cout<<"4.Salir "<<endl;
+   cin>>opt;
+
+   switch(opt){
+       case(1):{
+       mostrarMatriz();
+       break;
+    }
+
+       case(2):{
+        modificarHorario();
+       break;
+   }
+       case(3):{
+        LeerBase();
+       break;
+   }
+       case(4):{
+       exit(0);
+       break;
+   }
+       default:{
+       cout<<"XXXXX.....error al ingresar datos.....XXXXX"<<endl;
+       exit(0);
+       break;
+   }
+
+   }
+ }
+}
+void mostrarMatriz(){
+
+    cout<<endl<<endl;
+    char mat[6][15];
+    char dias[]={'L','M','W','J','v','s'};
+         for(int i=0; i<6; i++){
+            for (int j = 0; j < 15; j++)
+                    mat[i][j] =  '-';
+            }
+cout<<"  ";
+
+    for(int j = 0; j < 15; j++){
+        cout<<j+6<<'\t';
+    }
+    cout<<endl;
+
+
+    for(int i = 0; i < 6; i++){
+        cout <<dias[i]<<" ";
+        for(int j = 0; j < 15; j++){
+
+            cout<<mat[i][j] <<'\t';
+        }
+        cout<<endl;
+    }
+}
+
+void modificarHorario(){
+
+
+    bool funcionando = true;
+    char op;
+    while(funcionando == true){
+    cout<<endl<<endl;
+    mostrarMatriz();
+    cout<<"Ingrese a para reservar una hora de su horario. "<<endl<<"Ingrese b para quitar un horario."<<endl<<"Ingrese una letra diferente para salir "<<endl;
+    cin>>op;
+    if(op!='a' && op!='b') break;
+    cout<<"Ingrese el dia, lunes a sabado, solo la inicial"<<endl; cin>>dia;
+    cout<<"Ingrese la hora 6-20 "<<endl; cin>>hora;
+    switch(dia){
+        case 'l':{
+            if(op=='a'){
+                system("pause");
+                cout<<endl;
+                mat[1][hora-6] = 'X';
+            }
+            else{
+                mat[1][hora-6] = '-';
+            }
+            break;
+            }
+
+        case 'm':{
+            if(op=='a'){
+                system("pause");
+                cout<<endl;
+                mat[2][hora-6] = 'X';
+            }
+            else {
+                mat[2][hora-6] = '-';
+            }
+            break;
+            }
+
+        case 'w':{
+        if(op=='a'){
+            system("pause");
+            cout<<endl;
+            mat[3][hora-6] = 'X';
+            }
+            else {
+            mat[3][hora-6] = '-';
+            }
+            break;
+            }
+
+        case 'j':{
+        if(op=='a'){
+            system("pause");
+            cout<<endl;
+            mat[4][hora-6] = 'X';
+            }
+        else {
+            mat[4][hora-6] = '-';
+            }
+            break;
+            }
+
+        case 'v':{
+            if(op=='a'){
+            system("pause");
+            cout<<endl;
+            mat[5][hora-6] = 'X';
+            }
+         else {
+            mat[5][hora-6] = '-';
+            }
+            break;
+            }
+
+        case 's':{
+        if(op=='a'){
+
+            system("pause");
+            cout<<endl;
+            mat[5][hora-6] = 'X';
+            }
+            else {
+            mat[5][hora-6] = '-';
+            }
+            break;
+            }
+        default:{
+            cout<<" xxxx...Datos incorrectos...xxxxx";
+            break;
+            }
+        funcionando = false;
+      }
+
+  }
+}
+
+void LeerBase(){
+    cout<<".....Mostrando los horarios por semestre.....";
+    char* contenido = leerArchivo("archivo.txt");
+    if (contenido != nullptr) {
+        cout << "Contenido del archivo: " << endl << contenido << endl;
+        delete[] contenido;
+    }
+}
+
+char* leerArchivo(const char* nombreArchivo) {
+    ifstream archivo(nombreArchivo);
+    if (!archivo.is_open()) {   //si no se puede abrir el archivo.
+        cerr << "Error al abrir el archivo " << nombreArchivo << endl;
+        return nullptr;
+    }
+
+    //obtenemos el tamaño del archivo:
+    archivo.seekg(0, ios::end);
+    int tamanoArchivo = archivo.tellg();
+    archivo.seekg(0, ios::beg);
+
+
+    char* contenido = new char[tamanoArchivo + 1];  //creamos un puntero de char y reservamos la memoria dependiendo del tamaño del archivo obtuvimos con las lineas anteriores.
+    archivo.read(contenido, tamanoArchivo);   //leemos el archivo.
+    contenido[tamanoArchivo] = '\0';   //limpiamos la variable del contenido del archivo.
+
+    archivo.close(); //cerramos el archivo
+
+    return contenido;
+}
+
